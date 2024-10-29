@@ -1,0 +1,18 @@
+shiny
+shinywidgets
+ipyleaflet
+shapely
+branca
+numpy
+pandas
+geopandas
+ipywidgets
+# json
+# re
+# pathlib
+country_converter
+openpyxl
+# Fiona
+jupyter-leaflet
+
+
