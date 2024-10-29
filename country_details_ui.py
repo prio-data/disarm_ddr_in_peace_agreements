@@ -1,0 +1,43 @@
+import country_converter as coco
+from shiny import ui
+
+converter = coco.CountryConverter()
+
+ 
+
+
+def country_details(country, df, pa_count):
+    # df = new_df_disarm
+
+    pa_df = df[df['ISO3']==country][['pa_name', 'year', 'dyad_name']]
+    pa_df = pa_df.sort_values(by=['year'], ascending=False)
+    # print(pa_df)
+    # pa_year = df[df['ISO3']==country][['pa_name', 'year']]
+    # print(pa_year)
+    short_country_name = converter.convert(names=country, src="ISO3", to="name_short")
+    
+    ui_details = ui.div(ui.page_fluid(
+        ui.div(
+            ui.input_action_button("show_map_page", "Map Page", class_= 'country-details-btn'),
+            ui.div(ui.div(ui.p(f"{pa_count}"), class_= "stat-number"),
+                   ui.div(ui.p("Number of"), class_= "stat-label1"),
+                   ui.div(ui.p("Agreements"), class_= "stat-label2")
+                   , class_="top-right-stats ")
+            , class_="header-container"),
+        ui.h2(f"{short_country_name}", class_="country-details-title"), 
+        ui.div(
+            *[
+                ui.tooltip(
+                    ui.div(ui.input_action_button(f"{d}", f"{pa_df['year'].iloc[d]} : {pa_df['pa_name'].iloc[d]}", class_="agreement_btn")),
+                    # f"Conflict dyad names: {pa_df['dyad_name'].iloc[d]}",
+                    ui.div(ui.HTML(f"Conflict dyad names: <ul>{''.join([f'<li>{item.strip()}</li>' for item in pa_df['dyad_name'].iloc[d].split(' - ')])}</ul>")
+                    , class_="dyad-tooltip")
+                    , placement="right" 
+                )
+                for d in range(len(pa_df['pa_name']))],
+            class_="agreement-container")
+    ) , class_="country-details-container")
+
+    return ui_details 
+
+
