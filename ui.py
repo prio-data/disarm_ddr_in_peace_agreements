@@ -29,7 +29,7 @@ app_ui = ui.page_fluid(
                     ui.nav_panel("Contact", 
                                  ui.output_ui("contact_page_ui")
                     ),
-                    title=ui.h2("DISARM: Introducing the DDR Dataset (1975-2021)", class_="app-title"),
+                    title=ui.h2("DISARM: The DDR Dataset (1975-2021)", class_="app-title"),
                     id="tab"
                 ),
                 class_="custom-nav-tabs",
