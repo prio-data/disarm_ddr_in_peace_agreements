@@ -24,7 +24,7 @@ def about_page_details():
                  'DDR provisions in intra-state peace agreements between 1975-2021, ' 
                  'identified by the <a href="https://ucdp.uu.se/downloads/index.html#peaceagreement" target="_blank" class="custom-link">Uppsala Conflict Data Programme</a>.The ' 
                  '(open access) article introducing the data, published in The ' 
-                 'Journal of Peace Research, is available here.'), class_="custom-paragraph"),
+                 'Journal of Peace Research, is available <a href="https://journals.sagepub.com/doi/10.1177/00223433241294148" target="_blank" class="custom-link">here</a>.'), class_="custom-paragraph"),
             ui.p("Meet the team behind the DDR Dataset: Julia "
                  "Palik, Mauricio Rivera Celestine, David Gomez, "
                  "Nicholas Marsh, and Ida Rødningen.", class_="custom-paragraph"),
